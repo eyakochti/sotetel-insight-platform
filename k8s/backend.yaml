@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: sotetel
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 8089
+      targetPort: 8089
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: sotetel
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: eyakochti/sotetel-insight-backend-jenkins:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8089
+          envFrom:
+            - configMapRef:
+                name: sotetel-config
+            - secretRef:
+                name: sotetel-secret
+          resources:
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+          readinessProbe:
+            httpGet:
+              path: /insight/actuator/health
+              port: 8089
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /insight/actuator/health
+              port: 8089
+            initialDelaySeconds: 90
+            periodSeconds: 20
