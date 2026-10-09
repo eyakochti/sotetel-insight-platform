@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cnpg-egress-api
+  namespace: sotetel
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/cluster: pg
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 172.20.0.2/32
+      ports:
+        - protocol: TCP
+          port: 6443
+    - to:
+        - podSelector:
+            matchLabels:
+              cnpg.io/cluster: pg
+      ports:
+        - protocol: TCP
+          port: 5432
+        - protocol: TCP
+          port: 8000

@@ -1,0 +1,22 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg
+  namespace: sotetel
+spec:
+  instances: 3
+  bootstrap:
+    initdb:
+      database: supervision_wireless_ftth
+      owner: admin
+      secret:
+        name: sotetel-pg-app
+  storage:
+    size: 1Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
