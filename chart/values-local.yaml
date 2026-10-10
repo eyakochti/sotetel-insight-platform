@@ -1,0 +1,8 @@
+backend:
+  replicas: 2
+frontend:
+  replicas: 2
+database:
+  instances: 3
+kubeApi:
+  ip: 172.20.0.2

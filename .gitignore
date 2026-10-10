@@ -7,3 +7,4 @@ crash.log
 .terraform.lock.hcl
 k8s/secret.yaml
 k8s/seed.sql
+k8s/cnpg-secret.yaml

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sotetel-insight
+description: Chart Helm de la plateforme Sotetel Insight
+type: application
+version: 0.1.0
+appVersion: "1.0"

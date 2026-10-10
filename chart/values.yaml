@@ -1,0 +1,22 @@
+backend:
+  image: eyakochti/sotetel-insight-backend-jenkins:latest
+  replicas: 2
+  port: 8089
+
+frontend:
+  image: eyakochti/sotetel-insight-frontend-jenkins:latest
+  replicas: 2
+  port: 80
+
+database:
+  instances: 3
+  storageSize: 1Gi
+  name: supervision_wireless_ftth
+  owner: admin
+
+cors:
+  allowedOrigins: http://localhost:4200
+
+kubeApi:
+  ip: 172.20.0.2
+  port: 6443

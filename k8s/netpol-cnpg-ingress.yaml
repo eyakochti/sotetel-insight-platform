@@ -26,4 +26,5 @@ spec:
       ports:
         - protocol: TCP
           port: 5432
-          endPort: 8000
+        - protocol: TCP
+          port: 8000
