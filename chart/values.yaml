@@ -4,7 +4,7 @@ backend:
   port: 8089
 
 frontend:
-  image: eyakochti/sotetel-insight-frontend-jenkins:latest
+    image: eyakochti/sotetel-insight-frontend:708fab273c616e1a84c15f1f463f35ae528cd032
   replicas: 2
   port: 80
 
