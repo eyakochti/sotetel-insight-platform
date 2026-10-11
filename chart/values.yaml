@@ -20,3 +20,6 @@ cors:
 kubeApi:
   ip: 172.20.0.3
   port: 6443
+
+gateway:
+  className: eg
