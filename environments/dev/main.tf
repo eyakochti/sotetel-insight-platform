@@ -66,6 +66,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   network_profile {
     network_plugin = "azure"
+    network_policy = "calico"
     service_cidr   = "10.100.0.0/16"
     dns_service_ip = "10.100.0.10"
   }
