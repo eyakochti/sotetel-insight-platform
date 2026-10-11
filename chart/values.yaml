@@ -18,5 +18,5 @@ cors:
   allowedOrigins: http://localhost:4200
 
 kubeApi:
-  ip: 172.20.0.2
+  ip: 172.20.0.3
   port: 6443
