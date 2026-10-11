@@ -1,0 +1,12 @@
+# Valeurs propres à AKS. Les valeurs marquées A_COMPLETER dépendent du cluster créé.
+backend:
+  replicas: 2
+frontend:
+  replicas: 2
+database:
+  instances: 3
+kubeApi:
+  ip: A_COMPLETER   # adresse de l'API AKS, relevée après création du cluster
+  port: 443         # à vérifier : peut différer de 6443 sur AKS
+cors:
+  allowedOrigins: A_COMPLETER   # https://ton-domaine ou http://IP.nip.io
