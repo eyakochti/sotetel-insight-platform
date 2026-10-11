@@ -6,3 +6,5 @@ database:
   instances: 3
 kubeApi:
   ip: 172.20.0.3
+cors:
+  allowedOrigins: http://sotetel.local:8081
