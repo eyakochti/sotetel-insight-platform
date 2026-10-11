@@ -5,4 +5,4 @@ frontend:
 database:
   instances: 3
 kubeApi:
-  ip: 172.20.0.2
+  ip: 172.20.0.3
