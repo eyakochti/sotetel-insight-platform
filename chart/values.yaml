@@ -15,7 +15,7 @@ database:
   owner: admin
 
 cors:
-  allowedOrigins: http://localhost:4200
+  allowedOrigins: http://localhost:51389
 
 kubeApi:
   ip: 172.20.0.3
