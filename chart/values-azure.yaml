@@ -8,6 +8,6 @@ kubeApi:
   ip: 172.160.137.218
   port: 443
 cors:
-  allowedOrigins: http://localhost:4200
+  allowedOrigins: http://4.225.142.149
 monitoring:
   enabled: true
