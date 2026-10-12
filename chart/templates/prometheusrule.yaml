@@ -1,0 +1,27 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: sotetel-alerts
+  namespace: {{ .Release.Namespace }}
+  labels:
+    release: kps
+spec:
+  groups:
+    - name: sotetel
+      rules:
+        - alert: BackendIndisponible
+          expr: up{job="backend", namespace="{{ .Release.Namespace }}"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Un pod backend ne repond plus aux metriques"
+        - alert: SitesEnPanne
+          expr: sotetel_sites{etat="DOWN"} > 0
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Au moins un site est DOWN"
+{{- end }}
