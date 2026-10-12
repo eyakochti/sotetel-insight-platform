@@ -1,0 +1,30 @@
+prometheus:
+  prometheusSpec:
+    retention: 6h
+    resources:
+      requests:
+        cpu: 100m
+        memory: 400Mi
+      limits:
+        memory: 800Mi
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        memory: 50Mi
+      limits:
+        memory: 100Mi
+grafana:
+  resources:
+    requests:
+      memory: 150Mi
+    limits:
+      memory: 500Mi
+  livenessProbe:
+    initialDelaySeconds: 240
+    failureThreshold: 20
+  readinessProbe:
+    initialDelaySeconds: 60
+    failureThreshold: 30
