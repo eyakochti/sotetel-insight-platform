@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sotetel-argo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:eyakochti/sotetel-insight-platform.git
+    targetRevision: main
+    path: chart
+    helm:
+      valueFiles:
+        - values-azure.yaml
+      parameters:
+        - name: database.instances
+          value: "1"
+        - name: backend.replicas
+          value: "1"
+        - name: frontend.replicas
+          value: "1"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sotetel-argo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
