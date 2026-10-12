@@ -14,9 +14,9 @@ spec:
         - values-azure.yaml
       parameters:
         - name: database.instances
-          value: "1"
+          value: "3"
         - name: backend.replicas
-          value: "1"
+          value: "2"
         - name: frontend.replicas
           value: "1"
   destination:
