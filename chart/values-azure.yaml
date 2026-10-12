@@ -5,7 +5,9 @@ frontend:
 database:
   instances: 3
 kubeApi:
-  ip: 74.158.56.196
+  ip: 172.160.137.218
   port: 443
 cors:
-  allowedOrigins: http://4.225.4.124
+  allowedOrigins: http://localhost:4200
+monitoring:
+  enabled: true
