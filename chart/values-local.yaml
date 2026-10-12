@@ -8,3 +8,6 @@ kubeApi:
   ip: 172.20.0.3
 cors:
   allowedOrigins: http://sotetel.local:8081
+
+monitoring:
+  enabled: true

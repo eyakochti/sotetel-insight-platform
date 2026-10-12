@@ -23,3 +23,6 @@ kubeApi:
 
 gateway:
   className: eg
+
+monitoring:
+  enabled: false
