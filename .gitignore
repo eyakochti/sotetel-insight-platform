@@ -8,3 +8,4 @@ crash.log
 k8s/secret.yaml
 k8s/seed.sql
 k8s/cnpg-secret.yamltfplan
+tfplan
