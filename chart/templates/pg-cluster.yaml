@@ -20,3 +20,7 @@ spec:
     limits:
       cpu: 500m
       memory: 512Mi
+{{- if .Values.monitoring.enabled }}
+  monitoring:
+    enablePodMonitor: true
+{{- end }}
